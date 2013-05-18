@@ -1,0 +1,6 @@
+{% load cms_tags %}
+<div class="grid-{{ column.size }}{% if grid.inner %}{% if forloop.parentloop.first %} alpha{% endif %}{% if forloop.parentloop.last %} omega{% endif %}{% endif %}">
+{% for plugin in column.child_plugin_instances %}
+	{% render_plugin plugin %}
+{% endfor %}
+</div>
