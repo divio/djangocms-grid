@@ -3,9 +3,9 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
-DJANGOCMS_GRID_SIZE = getattr(settings, 'DJANGOCMS_COLUMN_960_COLUMNS', 25)
+DJANGOCMS_GRID_SIZE = getattr(settings, 'DJANGOCMS_COLUMN_960_COLUMNS', 24)
 DJANGOCMS_GRID_CHOICES = [
-    ('%s' % i, 'grid-%s' % i) for i in range(1, DJANGOCMS_GRID_SIZE)
+    ('%s' % i, 'grid-%s' % i) for i in range(1, DJANGOCMS_GRID_SIZE+1)
 ]
 
 
