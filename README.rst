@@ -31,3 +31,4 @@ The above example is the default, which, incidentally, matches the widely used 9
 Usage
 -----
 
+.. _virtualenv: http://www.virtualenv.org/en/latest/
