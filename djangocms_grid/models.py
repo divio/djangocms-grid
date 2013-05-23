@@ -1,11 +1,15 @@
-from cms.models import CMSPlugin
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
-DJANGOCMS_GRID_SIZE = getattr(settings, 'DJANGOCMS_COLUMN_960_COLUMNS', 24)
+from cms.models import CMSPlugin
+
+
+GRID_CONFIG = {'COLUMNS': 24, 'TOTAL_WIDTH': 960, 'GUTTER': 10}
+GRID_CONFIG.update(getattr(settings, 'DJANGOCMS_GRID_CONFIG', {}))
+
 DJANGOCMS_GRID_CHOICES = [
-    ('%s' % i, 'grid-%s' % i) for i in range(1, DJANGOCMS_GRID_SIZE+1)
+    ('%s' % i, 'grid-%s' % i) for i in range(1, GRID_CONFIG['COLUMNS']+1)
 ]
 
 
@@ -23,4 +27,3 @@ class GridColumn(CMSPlugin):
 
     def __unicode__(self):
         return u"%s" % self.get_size_display()
-

@@ -14,6 +14,20 @@ This plugin requires `django CMS` 2.4 or higher to be properly installed.
 * Run ``manage.py migrate djangocms_grid``.
 
 
+Configure your grid
+-------------------
+
+You can configure your grid using three numbers: total width of grid, number of
+columns, and width of the gutter in between each column::
+
+    DJANGOCMS_GRID_CONFIG = {
+        'COLUMNS': 24,
+        'TOTAL_WIDTH': 960,
+        'GUTTER': 10,
+    }
+
+The above example is the default, which, incidentally, matches the widely used 960 grid.
+
 Usage
 -----
 

@@ -1,6 +1,6 @@
 from cms.plugin_pool import plugin_pool
 from cms.plugin_base import CMSPluginBase
-from djangocms_grid.models import Grid, GridColumn, DJANGOCMS_GRID_SIZE
+from djangocms_grid.models import Grid, GridColumn, GRID_CONFIG
 from django.utils.translation import ugettext_lazy as _
 from djangocms_grid.forms import GridPluginForm
 from cms.models import CMSPlugin
@@ -19,7 +19,7 @@ class GridPlugin(CMSPluginBase):
         context.update({
             'grid': instance,
             'placeholder': placeholder,
-            'GRID_SIZE': DJANGOCMS_GRID_SIZE,
+            'GRID_SIZE': GRID_CONFIG['COLUMNS'],
         })
         return context
 
@@ -42,6 +42,7 @@ class GridColumnPlugin(CMSPluginBase):
         context.update({
             'column': instance,
             'placeholder': placeholder,
+            'width': GRID_CONFIG['TOTAL_WIDTH'] / GRID_CONFIG['COLUMNS'] * int(instance.size) - 2 * GRID_CONFIG['GUTTER']
         })
         return context
 
