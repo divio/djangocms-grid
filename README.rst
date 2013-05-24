@@ -23,7 +23,7 @@ columns, and width of the gutter in between each column::
     DJANGOCMS_GRID_CONFIG = {
         'COLUMNS': 24,
         'TOTAL_WIDTH': 960,
-        'GUTTER': 10,
+        'GUTTER': 20,
     }
 
 The above example is the default, which, incidentally, matches the widely used 960 grid.
