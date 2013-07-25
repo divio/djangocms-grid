@@ -42,7 +42,7 @@ class GridColumnPlugin(CMSPluginBase):
         context.update({
             'column': instance,
             'placeholder': placeholder,
-            'width': GRID_CONFIG['TOTAL_WIDTH'] / GRID_CONFIG['COLUMNS'] * int(instance.size)
+            'width': GRID_CONFIG['TOTAL_WIDTH'] / GRID_CONFIG['COLUMNS'] * int(instance.size) - GRID_CONFIG['GUTTER']
         })
         return context
 
