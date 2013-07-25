@@ -1,9 +1,9 @@
 from django import forms
-from djangocms_grid.models import Grid, DJANGOCMS_GRID_CHOICES, DJANGOCMS_GRID_SIZE
+from djangocms_grid.models import Grid, GRID_CONFIG, DJANGOCMS_GRID_CHOICES
 from django.utils.translation import ugettext_lazy as _
 
 NUM_COLUMNS = [
-    (i, '%s' % i) for i in range(0, DJANGOCMS_GRID_SIZE)
+    (i, '%s' % i) for i in range(0, GRID_CONFIG['COLUMNS'])
 ]
 
 
