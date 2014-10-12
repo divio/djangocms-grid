@@ -12,6 +12,12 @@ This plugin requires `django CMS` 2.4 or higher to be properly installed.
 * In your projects `virtualenv`_, run ``pip install djangocms-grid``.
 * Add ``'djangocms_grid'`` to your ``INSTALLED_APPS`` setting.
 * Run ``manage.py migrate djangocms_grid``.
+  
+If you are using Django 1.7, you must also add:
+
+	'djangocms_grid': 'djangocms_grid.migrations_django',
+
+to your settings.MIGRATION_MODULES
 
 
 Configure your grid
