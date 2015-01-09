@@ -30,7 +30,7 @@ setup(
     author='Divio AG',
     author_email='info@divio.ch',
     url='https://github.com/divio/djangocms-grid',
-    packages=find_packages(exclude=[]),
+    packages=['djangocms_grid', 'djangocms_grid.migrations', 'djangocms_grid.migrations_django'],
     install_requires=INSTALL_REQUIRES,
     license='LICENSE.txt',
     platforms=['OS Independent'],
