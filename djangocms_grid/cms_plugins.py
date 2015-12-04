@@ -1,9 +1,15 @@
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+
+from django.utils.translation import ugettext_lazy as _
+
+from cms.models import CMSPlugin
 from cms.plugin_pool import plugin_pool
 from cms.plugin_base import CMSPluginBase
-from djangocms_grid.models import Grid, GridColumn, GRID_CONFIG
-from django.utils.translation import ugettext_lazy as _
+
 from djangocms_grid.forms import GridPluginForm
-from cms.models import CMSPlugin
+from djangocms_grid.models import Grid, GridColumn, GRID_CONFIG
 
 
 class GridPlugin(CMSPluginBase):
@@ -24,9 +30,15 @@ class GridPlugin(CMSPluginBase):
         return context
 
     def save_model(self, request, obj, form, change):
-        response = super(GridPlugin, self).save_model(request, obj, form, change)
+        response = super(GridPlugin, self).save_model(request, obj, form,
+                                                      change)
         for x in xrange(int(form.cleaned_data['create'])):
-            col = GridColumn(parent=obj, placeholder=obj.placeholder, language=obj.language, size=form.cleaned_data['create_size'], position=CMSPlugin.objects.filter(parent=obj).count(), plugin_type=GridColumnPlugin.__name__)
+            col = GridColumn(
+                parent=obj, placeholder=obj.placeholder, language=obj.language,
+                size=form.cleaned_data['create_size'],
+                position=CMSPlugin.objects.filter(parent=obj).count(),
+                plugin_type=GridColumnPlugin.__name__
+            )
             col.save()
         return response
 
@@ -42,7 +54,8 @@ class GridColumnPlugin(CMSPluginBase):
         context.update({
             'column': instance,
             'placeholder': placeholder,
-            'width': GRID_CONFIG['TOTAL_WIDTH'] / GRID_CONFIG['COLUMNS'] * int(instance.size) - GRID_CONFIG['GUTTER']
+            'width': (GRID_CONFIG['TOTAL_WIDTH'] / GRID_CONFIG['COLUMNS'] *
+                      int(instance.size) - GRID_CONFIG['GUTTER'])
         })
         return context
 

@@ -24,7 +24,9 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-LANGUAGES = ( ('en-us', 'English'), )
+LANGUAGES = (
+    ('en-us', 'English'),
+)
 
 SITE_ID = 1
 
@@ -46,10 +48,11 @@ MIGRATION_MODULES = {
     'djangocms_grid': 'djangocms_grid.migrations_django',
 }
 
+
 def djangomigration():
     # turn ``djangomigration.py`` into
-    # ``manage.py makemigrations djangocms_grid`` and setup the 
-    # enviroment
+    # ``manage.py makemigrations djangocms_grid`` and setup the
+    # environment
     from django.conf import settings
 
     from django.core.management import ManagementUtility
